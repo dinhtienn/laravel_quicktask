@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Task;
+use App\Models\Task;
 
 class TaskController extends Controller
 {
@@ -19,6 +19,8 @@ class TaskController extends Controller
 
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
+
+        return redirect()->route('tasks.index');
     }
 }
